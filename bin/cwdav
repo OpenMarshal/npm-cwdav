@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+"use strict";
+
+var path = require('path');
+
+var lib = path.resolve(path.join(__dirname, '../lib/index.js'));
+require(lib).execute();

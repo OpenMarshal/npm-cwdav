@@ -1,0 +1,32 @@
+{
+  "name": "cwdav",
+  "version": "1.0.0",
+  "description": "Start a preconfigured WebDAV server using cryptography and compression",
+  "main": "./lib/index",
+  "keywords": [
+    "webdav",
+    "server",
+    "cwdav",
+    "crypted",
+    "configured",
+    "preconfigured",
+    "example"
+  ],
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "bin": {
+    "cwdav": "./bin/cwdav"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OpenMarshal/npm-cwdav.git"
+  },
+  "scripts": {},
+  "author": "Adrien Castex <adrien.castex@gmail.com>",
+  "license": "Unlicense",
+  "dependencies": {
+    "readline-sync": "^1.4.7",
+    "webdav-server": "^1.5.1"
+  }
+}
