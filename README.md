@@ -25,6 +25,10 @@ cwdav .cwdav.json
 
 ## Configuration
 
+The default configuration file name is `cwdav.json`.
+
+The string values can refer to another value with the `$(...)` pattern.
+
 Key | Default value | Description
 -|-|-
 **port** | `1900` | Port of the server
@@ -39,3 +43,14 @@ Key | Default value | Description
 **masterNbIteration** | `80000` | Number of hash iteration to get the master key/IV
 **minorNbIteration** | `1000` | Number of hash iteration to get the file-specific IV
 **keyLen** | `256` | Encryption/descryption key size
+
+Here is an example of a configuration file :
+```json
+{
+    "port": 1900,
+    "container": "./data",
+    "treeFile": "$(container)/tree",
+    "tempTreeFile": "$(container)/tree.tmp",
+    "treeSeed": "tree"
+}
+```
