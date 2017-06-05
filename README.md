@@ -13,7 +13,7 @@ npm i -g cwdav
 ```bash
 cwdav [<config-file-json>]
 
-# load the file './cwdav.json' or, if it doesn't exist,
+# Load the file './cwdav.json' or, if it doesn't exist,
 # load a default configuration (store all in the './data'
 # folder, creates it if it doesn't exist).
 cwdav
