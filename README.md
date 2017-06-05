@@ -1,6 +1,6 @@
 # Crypted WebDAV Server
 
-Start a preconfigured WebDAV server (based on webdav-server), which store files in a folder, encrypt and compress them. The encryption is AES256 CBC using a master password.
+Start a preconfigured WebDAV server (based on [webdav-server](https://www.npmjs.com/package/webdav-server)), which store files in a folder, encrypt and compress them. The encryption is AES256 CBC using a master password.
 
 ## Install
 
