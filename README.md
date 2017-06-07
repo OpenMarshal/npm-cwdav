@@ -55,3 +55,7 @@ Here is an example of a configuration file :
     "treeSeed": "tree"
 }
 ```
+
+## Note
+
+For an unkown reason yet, if you set the *hostname* to `'localhost'` or `'127.0.0.1'`, the Windows embedded WebDAV client will be slower requesting to this server.
