@@ -5,4 +5,4 @@
 var path = require('path');
 
 var lib = path.resolve(path.join(__dirname, '../lib/index.js'));
-require(lib).execute();
+require(lib).execute(s => console.log('READY'));
