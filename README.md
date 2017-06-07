@@ -31,7 +31,7 @@ The string values can refer to another value with the `$(...)` pattern.
 
 Key | Default value | Description
 -|-|-
-**hostname** | `'localhost'` | Scope of the server (`localhost`, `0.0.0.0`, `::`, etc...)
+**hostname** | `'::'` | Scope of the server (`localhost`, `0.0.0.0`, `::`, etc...)
 **port** | `1900` | Port of the server
 **container** | `'./data'` | Folder to store the crypted data
 **treeFile** | `'$(container)/tree'` | File path in which store the resource tree
