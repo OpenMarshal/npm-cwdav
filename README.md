@@ -59,3 +59,78 @@ Here is an example of a configuration file :
 ## Note
 
 For an unkown reason yet, if you set the *hostname* to `'localhost'` or `'127.0.0.1'`, the Windows embedded WebDAV client will be slower requesting to this server.
+
+## As a module
+
+## cwdav.execute
+
+### cwdav.execute(callback : (webDAVServer, httpServer) => void)
+
+Execute is a simple macro to start, quickly, from your code, a webdav server.
+
+```javascript
+const cwdav = require('cwdav');
+
+cwdav.execute(() => {
+    console.log('READY');
+})
+```
+
+Is equivalent to :
+
+```javascript
+const cwdav = require('cwdav'),
+      readline = require('readline-sync');
+
+function execute(callback)
+{
+    // Load the configuration from the argument file, from the local 'cwdav.json' file or from the default values
+    cwdav.config.load(process.argv[2], (e, config) => {
+        if(e)
+            throw e;
+        
+        // Ask to password to the user
+        const password = readline.question('Password : ', {
+            hideEchoBack: true
+        });
+
+        // Initialize the server with the password and its configuration
+        cwdav.init(password, config);
+        // Load the saved state of the server or create a new one
+        cwdav.load(() => {
+            // Start the webdav server and bind an auto-saver for some HTTP methods
+            cwdav.start((config, webDAVServer, httpServer) => {
+                if(callback)
+                    callback(config, webDAVServer, httpServer);
+            })
+        })
+    })
+}
+
+execute(() => {
+    console.log('READY');
+})
+```
+
+## What to do with a WebDAV Server?
+
+You can use it as a virtual repository to store data and allow other softwares to access to it.
+
+For instance :
+```javascript
+const cwdav = require('cwdav'),
+      fs = require('fs');
+
+cwdav.execute((config) => {
+    fs.writeFile('\\\\localhost@' + config.port + '\\DavWWWRoot\\data.json', JSON.stringify({ myData: 'data' }), (e) => {
+        // ...
+    })
+
+    // or
+    
+    fs.readFile('\\\\localhost@' + config.port + '\\DavWWWRoot\\data.json', (e, data) => {
+        data = JSON.parse(data.toString());
+        // ...
+    })
+})
+```
