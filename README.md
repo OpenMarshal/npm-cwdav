@@ -117,7 +117,7 @@ execute(() => {
 
 You can use it as a virtual repository to store data and allow other softwares to access to it.
 
-For instance :
+For instance (Windows uses `\\localhost@<port>\DavWWWRoot\` to connect to the server ; Linux will need to mount the server or to use a webdav client) :
 ```javascript
 const cwdav = require('cwdav'),
       fs = require('fs');
