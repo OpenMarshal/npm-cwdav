@@ -44,6 +44,7 @@ Key | Default value | Description
 **masterNbIteration** | `80000` | Number of hash iteration to get the master key/IV
 **minorNbIteration** | `1000` | Number of hash iteration to get the file-specific IV
 **keyLen** | `256` | Encryption/descryption key size
+**isVerbose** | `false` | Tell the server to display some information on its own
 
 Here is an example of a configuration file :
 ```json
