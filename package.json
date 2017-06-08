@@ -1,6 +1,6 @@
 {
   "name": "cwdav",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Start a preconfigured WebDAV server using cryptography and compression",
   "main": "./lib/index",
   "keywords": [
