@@ -12,18 +12,28 @@ npm i -g cwdav
 
 ```bash
 cwdav [<config-file-json>]
+cwdav2 [<config-file-v2-json>]
 
 # Load the file './cwdav.json' or, if it doesn't exist,
 # load a default configuration (store all in the './data'
 # folder, creates it if it doesn't exist).
 cwdav
 
+# Create a crypted webdav server for local use, using
+# default settings.
+cwdav2
+
 # Load a specific configuration file
 cwdav "/home/dev/path/config/.cwdav.json"
 cwdav .cwdav.json
+
+cwdav2 "/home/dev/path/config/.cwdav.json"
+cwdav2 .cwdav.json
 ```
 
 ## Configuration
+
+### Verison 1
 
 The default configuration file name is `cwdav.json`.
 
@@ -54,6 +64,32 @@ Here is an example of a configuration file :
     "treeFile": "$(container)/tree",
     "tempTreeFile": "$(container)/tree.tmp",
     "treeSeed": "tree"
+}
+```
+
+### Version 2
+
+Key | Default value | Description
+-|-|-
+**webdavServerOptions** | `undefined` | Settings of the webdav-server package
+**dataFolderPath** | `'.data'` | Folder to store the crypted data
+**masterFilePath** | `'data.json'` | File path in which store the resource tree
+**masterKeyIteration** | `100000` | Number of hash iteration to get the master key/IV
+**fileKeyIteration** | `1000` | Number of hash iteration to get the file-specific key/IV
+**keySize** | `32` | Encryption/descryption key size
+**ivSize** | `16` | Encryption/descryption IV size
+**cipherAlgorithm** | `'aes-256-cbc'` | Algorithm to use for encryption/decryption
+**hashAlgorithm** | `'sha256'` | Algorithm to use for the hashes
+**multiUser** | `false` | Define if the system must use a multi user system
+
+Here is an example of a configuration file :
+```json
+{
+    "webdavServerOptions": {
+        "port": 1900
+    },
+    "container": "./data",
+    "masterFilePath": ".cwdav-tree"
 }
 ```
 
