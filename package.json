@@ -16,7 +16,8 @@
     "node": ">= 4.0.0"
   },
   "bin": {
-    "cwdav": "./bin/cwdav"
+    "cwdav": "./bin/cwdav",
+    "cwdav2": "./bin/cwdav2"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,6 @@
   "license": "Unlicense",
   "dependencies": {
     "readline-sync": "^1.4.7",
-    "webdav-server": "^1.5.1"
+    "webdav-server": "^2.5.2"
   }
 }
